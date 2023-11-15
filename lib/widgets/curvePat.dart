@@ -6,9 +6,17 @@ class CustomClipPathContainer extends StatelessWidget {
     return ClipPath(
       clipper: MyCustomClipper(),
       child: Container(
-        height: 250, // Set the height to 300
-        color: const Color.fromARGB(
-            255, 255, 144, 101), // Background color of the container
+        height: 150, // Set the height to 300
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.centerLeft,
+            end: Alignment.centerRight,
+            colors: [
+              Color(0xfffda085),
+              Color(0xfff6d365),
+            ],
+          ),
+        ), // Background color of the container
       ),
     );
   }
