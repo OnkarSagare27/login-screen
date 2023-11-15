@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:login_screen/screens/signup_screen.dart';
 import 'package:login_screen/widgets/curvePat.dart';
 import 'package:login_screen/widgets/text_field.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({Key? key});
+class SignUpScreen extends StatefulWidget {
+  const SignUpScreen({Key? key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<SignUpScreen> createState() => _SignUpScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _SignUpScreenState extends State<SignUpScreen> {
   final _controller = TextEditingController();
   bool? isBoxChecked = false;
   @override
@@ -26,7 +25,7 @@ class _LoginScreenState extends State<LoginScreen> {
             const Padding(
               padding: EdgeInsets.fromLTRB(30, 50, 30, 50),
               child: Text(
-                'Login',
+                'Sign Up',
                 style: TextStyle(
                     color: Color(0xfffda085),
                     fontSize: 35,
@@ -35,6 +34,11 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(30, 10, 30, 10),
+              child:
+                  CustomTextField(fieldName: 'Name', myController: _controller),
+            ),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(30, 10, 30, 15),
               child: CustomTextField(
                   fieldName: 'Email', myController: _controller),
             ),
@@ -42,7 +46,14 @@ class _LoginScreenState extends State<LoginScreen> {
               padding: const EdgeInsets.fromLTRB(30, 10, 30, 10),
               child: CustomTextField(
                   myIcon: Icons.password_rounded,
-                  fieldName: 'Password',
+                  fieldName: 'Create Password',
+                  myController: _controller),
+            ),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(30, 10, 30, 10),
+              child: CustomTextField(
+                  myIcon: Icons.password_rounded,
+                  fieldName: 'Repeat Password',
                   myController: _controller),
             ),
             Padding(
@@ -61,7 +72,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     },
                   ),
                   const Text(
-                    'Remember me',
+                    'Keep me signed in',
                     style: TextStyle(
                         fontSize: 14,
                         color: Colors.grey,
@@ -73,7 +84,7 @@ class _LoginScreenState extends State<LoginScreen> {
             Center(
               child: ElevatedButton(
                 onPressed: () {
-                  debugPrint('Login Pressed');
+                  debugPrint('Sign up Pressed');
                 },
                 style: ElevatedButton.styleFrom(
                     padding: EdgeInsets.zero,
@@ -93,23 +104,10 @@ class _LoginScreenState extends State<LoginScreen> {
                     width: 140,
                     alignment: Alignment.center,
                     child: const Text(
-                      'Login',
+                      'Sign Up',
                       style:
                           TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                     ),
-                  ),
-                ),
-              ),
-            ),
-            const Padding(
-              padding: EdgeInsets.fromLTRB(30, 15, 30, 15),
-              child: Center(
-                child: Text(
-                  'Forgot Password?',
-                  style: TextStyle(
-                    fontSize: 12,
-                    color: Colors.grey,
-                    fontWeight: FontWeight.bold,
                   ),
                 ),
               ),
@@ -120,21 +118,16 @@ class _LoginScreenState extends State<LoginScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   const Text(
-                    "Don't have an account?",
+                    "Already have an account?",
                     style: TextStyle(
                         fontSize: 12,
                         color: Colors.grey,
                         fontWeight: FontWeight.bold),
                   ),
                   TextButton(
-                    onPressed: () => Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const SignUpScreen(),
-                      ),
-                    ),
+                    onPressed: () => Navigator.pop(context),
                     child: const Text(
-                      " Create your account",
+                      " Login to your account",
                       style: TextStyle(
                           fontSize: 12,
                           color: Color(0xfffda085),
