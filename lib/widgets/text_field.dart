@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class MyTextField extends StatelessWidget {
-  const MyTextField({
+class CustomTextField extends StatelessWidget {
+  const CustomTextField({
     super.key,
     required this.fieldName,
     required this.myController,
@@ -15,16 +15,22 @@ class MyTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      cursorColor: Color(0xfffda085),
       controller: myController,
       decoration: InputDecoration(
           labelText: fieldName,
           prefixIcon: Icon(myIcon, color: prefixIconColor),
+          enabledBorder: const OutlineInputBorder(
+              borderSide: BorderSide(color: Color(0xfffda085))),
+          disabledBorder: const OutlineInputBorder(
+              borderSide: BorderSide(color: Color(0xfffda085))),
           border: const OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.grey)),
+              borderSide: BorderSide(color: Color(0xfffda085))),
           focusedBorder: const OutlineInputBorder(
             borderSide: BorderSide(color: Color(0xfffda085)),
           ),
-          labelStyle: const TextStyle(color: Colors.grey)),
+          labelStyle:
+              const TextStyle(color: Colors.grey, fontWeight: FontWeight.w600)),
     );
   }
 }
