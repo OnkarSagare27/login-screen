@@ -2,4 +2,4 @@
 
 ## Screenshots
 
-![App Screenshot](https://github.com/OnkarSagare27/login_screen/blob/master/example/login_signup_page.png)
+![App Screenshot](https://github.com/OnkarSagare27/login-screen/blob/master/example/login_signup_page.png)
